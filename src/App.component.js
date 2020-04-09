@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import Displayrow from './Displayrow';
-import { fetchFrontPageStories, updateHiddenStory } from './App.action'
+import { fetchFrontPageStories, updateHiddenStory, fetchLastPageStories } from './App.action'
 
 
 
 if (process.env.BROWSER) {
     require("./App.css");
-  }
+}
 
 
 const App = ({ dispatch, storyData }) => {
@@ -19,9 +19,18 @@ const App = ({ dispatch, storyData }) => {
         dispatch(updateHiddenStory(newVal))
 
     }
+
+    const fetchStoriesOntype = (type) => {
+        if (type === 'F') {
+            dispatch(fetchFrontPageStories())
+        } else if (type === 'L') {
+            dispatch(fetchLastPageStories());
+        }
+
+    }
     return <div>
         <Header />
-        <Displayrow updateStory={updateStory} storyData={storyData} />
+        <Displayrow fetchStoriesOntype={fetchStoriesOntype} updateStory={updateStory} storyData={storyData} />
     </div>
 }
 

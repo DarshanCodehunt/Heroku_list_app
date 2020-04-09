@@ -22,7 +22,17 @@ export const updateHiddenStory = data => {
 
 export const fetchFrontPageStories = () => {
     return dispatch => {
-        getStories().then((response) => {
+        getStories('F').then((response) => {
+            dispatch(receivedStories(response))
+        }).catch((err) => {
+            console.log('ERROR', err)
+        })
+    }
+}
+
+export const fetchLastPageStories = () => {
+    return dispatch => {
+        getStories('L').then((response) => {
             dispatch(receivedStories(response))
         }).catch((err) => {
             console.log('ERROR', err)

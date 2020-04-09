@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 
-const Displayrow = ({ storyData, updateStory }) => {
+const Displayrow = ({ storyData, updateStory, fetchStoriesOntype }) => {
+    const [type, setType] = useState('F');
+
+    useEffect(() => {
+        fetchStoriesOntype(type);
+    }, [type])
     const fetchTime = (date) => {
         const d1 = new Date(new Date().toGMTString())
         const d2 = new Date(new Date(date).toGMTString())
@@ -31,8 +36,12 @@ const Displayrow = ({ storyData, updateStory }) => {
         });
         updateStory(storyData);
     }
+
+    const handlePagination = () => {
+        type === 'F' ? setType('L') : setType('F');
+    }
     const fetchRows = () => {
-        return storyData && storyData.map((obj,index) => {
+        let arr = storyData && storyData.map((obj, index) => {
             if (obj.ishidden) {
                 return null;
             } else {
@@ -46,11 +55,23 @@ const Displayrow = ({ storyData, updateStory }) => {
             }
 
 
-        })
+        });
+        if (arr) {
+            arr.push(<div className='story-block'>
+                <p className='flex-item1'> {''}</p>
+                <p className='flex-item2'>{''}</p>
+                <p onClick={handlePagination} className='flex-item3' style={{ color: 'orangered', cursor: 'pointer' }}>{type === 'F' ? 'More' : 'Back'}</p>
+            </div>)
+        }
+
+
+
+        return arr;
     }
 
     return <div className='main-block'>
         {fetchRows()}
+
     </div>
 }
 

@@ -1,7 +1,13 @@
 import axios from 'axios';
-export const getStories = () => {
+export const getStories = (type) => {
     return new Promise((resolve, reject) => {
-        axios.get('https://hn.algolia.com/api/v1/search?tags=front_page')
+        let url = '';
+        if (type === 'F') {
+            url = 'https://hn.algolia.com/api/v1/search?tags=front_page';
+        } else if (type === 'L') {
+            url = 'https://hn.algolia.com/api/v1/search_by_date?tags=story';
+        }
+        axios.get(url)
             .then((response) => {
                 resolve(response.data);
             })
