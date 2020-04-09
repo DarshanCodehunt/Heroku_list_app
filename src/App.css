@@ -1,0 +1,73 @@
+body{
+    margin:0px;
+    padding:0px;
+
+}
+
+.header-box{
+    padding: 20px;
+    background: #FF6602;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.header-box a{
+    text-decoration: none;
+    color: black;
+}
+
+.main-block div:nth-child(even){
+ background-color: #E6E6DF;
+}
+
+.main-block div:nth-child(odd){
+    background-color: #F6F6EF;
+}
+
+.story-block{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    font-family: sans-serif;
+}
+
+.story-block p {
+    padding: 5px;
+    margin: 5px;
+    font-size: 14px;
+    
+}
+
+.story-block p span{
+    font-size: 11px;
+    color: grey;
+}
+
+.flex-item1{
+    flex-basis: 2em;
+}
+
+.flex-item2{
+    flex-basis: 5em;
+}
+
+.flex-item3 a{
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 11px;
+    color:black;
+}
+
+.upvote-label{
+    font-size: 14px !important; 
+    color:black !important;
+}
+
+.fa{
+    margin-right: 5px !important;
+    cursor: pointer;
+}
+
+.color-change{
+    color:orangered !important;
+}
