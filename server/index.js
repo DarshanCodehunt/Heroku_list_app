@@ -30,10 +30,12 @@ app.get('/', async (req, res) => {
     const initialState = {
         storyData: []
     };
-    const stories = await getStories();
+    const stories = await getStories('F');
+    console.log('TEST SERVER DATA',stories);
     initialState.storyData = stories.hits;
 
     const store = fetchStore(initialState);
+
     const srverRender = ReactDOMServer.renderToString(
         <Provider store={store}>
             <App />
