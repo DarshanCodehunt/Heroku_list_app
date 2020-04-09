@@ -29,6 +29,7 @@ body{
     flex-wrap: nowrap;
     flex-direction: row;
     font-family: sans-serif;
+    text-align: right;
 }
 
 .story-block p {
@@ -44,11 +45,11 @@ body{
 }
 
 .flex-item1{
-    flex-basis: 2em;
+    flex:0 0 2%;
 }
 
 .flex-item2{
-    flex-basis: 5em;
+    flex:0 0 5%;
 }
 
 .flex-item3 a{
@@ -70,4 +71,24 @@ body{
 
 .color-change{
     color:orangered !important;
+}
+
+@media(max-width:768px){
+  .story-block{
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: column-reverse;
+        font-family: sans-serif;
+        text-align: left;
+        line-height: 1.5;
+        
+    }
+
+    .story-block p{
+        font-size: 16px;
+    }
+
+    .flex-item1{
+        display: none;
+    }
 }
