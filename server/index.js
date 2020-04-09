@@ -14,6 +14,8 @@ delete process.env.BROWSER;
 
 let app = express();
 
+let port = process.env.PORT || 8080;
+
 const webpackconfig = require('../webpack.config');
 const compiler = webpack(webpackconfig);
 
@@ -50,6 +52,6 @@ app.get('/', async (req, res) => {
 
 });
 
-app.listen('8080', () => {
-    console.log('App started');
+app.listen(port, () => {
+    console.log(`App started on Port number ${port}`);
 })

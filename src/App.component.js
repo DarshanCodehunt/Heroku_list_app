@@ -19,7 +19,6 @@ const App = ({ dispatch, storyData }) => {
         dispatch(updateHiddenStory(newVal))
 
     }
-    console.log('NewComponenet', storyData);
     return <div>
         <Header />
         <Displayrow updateStory={updateStory} storyData={storyData} />
@@ -33,7 +32,6 @@ const Header = () => {
 }
 
 function mapStateToProps(state, ownProps) {
-    console.log('NewComponenet', state);
     return {
         ...state
     }
