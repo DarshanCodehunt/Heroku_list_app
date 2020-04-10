@@ -52,6 +52,10 @@ body{
     flex:0 0 5%;
 }
 
+.flex-item3{
+    text-align: left;
+}
+
 .flex-item3 a{
     cursor: pointer;
     text-decoration: none;
